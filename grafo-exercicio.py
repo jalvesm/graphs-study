@@ -1,3 +1,5 @@
+import os
+
 class GrafoDirecionado:
     
     def __init__(self):
@@ -39,8 +41,20 @@ class GrafoDirecionado:
         if vertice in self.lista_adjacencia:
             return len(self.lista_adjacencia[vertice])
 
+
+def validar_nome_arquivo(nome_arquivo):
+    if not nome_arquivo:
+        print("O nome do arquivo não pode estar vazio.")
+        return False
+    if not os.path.isfile(nome_arquivo):
+        print(f"O arquivo '{nome_arquivo}' não foi encontrado.")
+        return False
+    return True
+
+
 def ler_grafo_de_arquivo(nome_arquivo):
     grafo = GrafoDirecionado()
+    
     with open(nome_arquivo, 'r') as arquivo:
         primeira_linha = True
         for linha in arquivo:
@@ -53,20 +67,35 @@ def ler_grafo_de_arquivo(nome_arquivo):
             grafo.adicionar_aresta(origem, destino)
     return grafo
 
-if __name__ == "__main__":
-    nome_arquivo = input("Nome do arquivo: ")
-    meu_grafo = ler_grafo_de_arquivo(nome_arquivo)
+def mostra_grau_de_saida(vertice_num): 
+    print(f"I) Grau de saída de {vertice_num}: {meu_grafo.grau_saida(vertice_num)}")
 
-    while True:
-        entrada = input("Número do vértice: ")
-        try:
-            vertice = int(entrada)
-            break
-        except ValueError:
-            print("Por favor, digite um número inteiro válido.")
-
+def mostra_grau_de_entrada(vertice_num): 
+    print(f"II) Grau de entrada de {vertice_num}: {meu_grafo.grau_entrada(vertice_num)}")
     
-    print(f"Forward Star de {vertice}: {meu_grafo.forward_star(vertice)}")
-    print(f"Reverse Star de {vertice}: {meu_grafo.reverse_star(vertice)}")
-    print(f"Grau de Entrada de {vertice}: {meu_grafo.grau_entrada(vertice)}")
-    print(f"Grau de Saída de {vertice}: {meu_grafo.grau_saida(vertice)}")
+def mostra_Sucessores(vertice_num):
+    print(f"III) Conjunto de sucessores de {vertice_num}:\t{meu_grafo.forward_star(vertice_num)}")
+    
+def mostra_Predecessores(vertice_num):
+    print(f"IV) Conjunto de predecessores de {vertice_num}:\t{meu_grafo.reverse_star(vertice_num)}")
+        
+if __name__ == "__main__":
+    while True:
+        nome_arquivo = input("Digite o nome do arquivo: ")
+        if validar_nome_arquivo(nome_arquivo):
+            meu_grafo = ler_grafo_de_arquivo(nome_arquivo)                
+            while True:
+                entrada = input("Número do vértice: ")
+                try:
+                    vertice = int(entrada)
+                    break
+                except ValueError:
+                    print("Por favor, digite um número inteiro válido.")
+            
+            print("\n--- OUTPUT ---")
+            mostra_grau_de_saida(vertice)
+            mostra_grau_de_entrada(vertice)
+            mostra_Sucessores(vertice)
+            mostra_Predecessores(vertice)
+            
+            break
