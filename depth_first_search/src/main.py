@@ -23,4 +23,6 @@ if __name__ == "__main__":
     visited = [False]*len(graph)  # Make all nodes to False initially
     component = []
     dfs(node, graph, visited, component)
-    print(f"Following is the Depth-first search: {component}")  # Print the answer
+    print(f"Following is the Depth-first search:{component}")
+    
+    print(type(component))
