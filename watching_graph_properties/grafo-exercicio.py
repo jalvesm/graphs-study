@@ -155,7 +155,7 @@ def imprimir_Sucessores(vertice_num):
     Args:
         vertice_num (int): Vértice obtido pelo input.
     """
-    print(f"III) Conjunto de sucessores de {vertice_num}:\t{meu_grafo.forward_star(vertice_num)}")
+    print(f"III) Conjunto de sucessores de {vertice_num}:\n\t{meu_grafo.forward_star(vertice_num)}")
     
 def imprimir_Predecessores(vertice_num):
     """Imprime no console os predecessores do vértice informado pelo usuário.
@@ -163,7 +163,7 @@ def imprimir_Predecessores(vertice_num):
     Args:
         vertice_num (int): Vértice obtido pelo input.
     """
-    print(f"IV) Conjunto de predecessores de {vertice_num}:\t{meu_grafo.reverse_star(vertice_num)}")
+    print(f"IV) Conjunto de predecessores de {vertice_num}:\n\t{meu_grafo.reverse_star(vertice_num)}")
         
 if __name__ == "__main__":
     while True:
@@ -178,7 +178,7 @@ if __name__ == "__main__":
                 except ValueError:
                     print("Por favor, digite um número inteiro válido.")
             
-            print("\n--- OUTPUT ---")
+            print("\n## OUTPUT")
             imprimir_grau_de_saida(vertice)
             imprimir_grau_de_entrada(vertice)
             imprimir_Sucessores(vertice)
