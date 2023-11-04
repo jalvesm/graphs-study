@@ -1,8 +1,8 @@
-# Repository Documentation
+##  Graphs theory
 
 This repository contains files and code related to graph operations. Below is an overview of the files and their contents:
 
-## Files
+### Files
 
 1. `dfs.py` - This file contains a Python script for performing Depth-First Search (DFS) on a graph. It reads graph data from a user-specified file, and then allows the user to specify a starting node for DFS. It prints the DFS traversal result.
 
@@ -12,14 +12,14 @@ This repository contains files and code related to graph operations. Below is an
 
 4. `graph-test-50000.txt` - This file is another representation of a graph in a text format with two columns.
 
-## Contents of `dfs.py`
+### Contents of `dfs.py`
 
 The `dfs.py` script includes the following functions:
 
 - `dfs(node, graph, visited, component)`: This function performs Depth-First Search on the given graph.
 - `main()`: The main section of the script reads graph data, takes user input for the starting node, and prints the DFS traversal.
 
-## Contents of `graph_operations.py`
+### Contents of `graph_operations.py`
 
 The `graph_operations.py` script includes the `DirectedGraph` class with the following methods:
 
@@ -31,10 +31,10 @@ The `graph_operations.py` script includes the `DirectedGraph` class with the fol
 - `out_degree(vertex)`: Calculates the out-degree of a vertex.
 - Other helper functions for file validation and reading graph data.
 
-## How to Use
+### How to Use
 
 To use these scripts, follow these steps:
 
 1. Run the `dfs.py` script by providing the name of a file containing graph data. It will prompt you to enter a starting node, and then it will print the DFS traversal result.
 
-2. Run the `dfs.py` script by providing the name of a file containing graph data. It will prompt you to enter a starting node, and then it will print the analysis results.
+2. Run the `directed_graph_analyzer.py` script by providing the name of a file containing graph data. It will prompt you to enter a starting node, and then it will print the analysis results.

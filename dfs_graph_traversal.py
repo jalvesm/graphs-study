@@ -1,3 +1,5 @@
+# source: https://www.scaler.com/topics/dfs-python/
+
 def dfs(node, graph, visited, component):
     component.append(node) 
     visited[node] = True 
